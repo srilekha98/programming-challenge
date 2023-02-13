@@ -1,4 +1,7 @@
-# Programming challenge
+# Instructions to run the code : git, postgres, python should be installed
+1. pip3 install -r api/requirements.txt
+2. export POSTGRES_PASSWORD="your_postgres_server_password"
+3. python3 api/save_data_to_table.py
 
 ## Background
 In food animal systems, animals move to different farms as they age. Each farm has a unique ID and must keep a record of the movement of animals from one farm to another. Here, we present some fictitious records of movements among pig farms.
