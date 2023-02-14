@@ -1,6 +1,5 @@
 import os
 import re
-import string
 import psycopg2
 import csv
 
