@@ -4,6 +4,7 @@ from helper.sql import Query
 pop = Blueprint('pop', __name__,
                         template_folder='templates')
 
+
 @pop.route("/population")
 def get_movements():
     q = Query()
@@ -15,6 +16,6 @@ def get_movements():
             row = dict(zip(keys,item))
             pop_data.append(row)
         q.close()
-        return {"response":pop_data, "status":200}
+        return {"response": pop_data, "status": 200}
     q.close()
-    return {"response":resp, "status":400}
+    return {"response": resp, "status": 400}
