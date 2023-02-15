@@ -1,10 +1,14 @@
 from flask import Flask, request
+from movements import movement
+from population import pop
 
 app = Flask(__name__)
+app.register_blueprint(movement)
+app.register_blueprint(pop)
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return "Hello, Trying to build a movement tracker app!"
 
 @app.route("/name/<name>")
 def get_book_name(name):
