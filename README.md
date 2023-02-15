@@ -1,9 +1,7 @@
 # Instructions to run the code : git, postgres, python should be installed
-1. pip3 install -r api/requirements.txt
-2. export POSTGRES_PASSWORD="your_postgres_server_password"
-3. python3 api/save_data_to_table.py
-4. python3 api/app.py
-5. open another terminal and do 'cd ui' and 'npm start'
+1. open the run.sh file and update the 4th line with your computer's POSTGRES server password
+2. open a terminal and run 'chmod +x run.sh' and './run.sh'
+4. open another terminal and do 'cd ui', 'npm install', 'npm start'
 
 ## Background
 In food animal systems, animals move to different farms as they age. Each farm has a unique ID and must keep a record of the movement of animals from one farm to another. Here, we present some fictitious records of movements among pig farms.
