@@ -17,6 +17,7 @@ class SaveData:
         self.tables = self.get_table_names()
 
     def execute_sql_statement(self, statement):
+        print(os.getenv(PASSWORD_PG))
         conn = psycopg2.connect(
                   host="localhost",
                   database="postgres",
@@ -51,7 +52,7 @@ class SaveData:
             return list_of_rows
 
     def get_insert_statements(self, table_name):
-        rows = self.read_table_rows("../data/{}.csv".format(table_name))
+        rows = self.read_table_rows("data/{}.csv".format(table_name))
         items_to_insert = []
         columns = "Id,"+",".join(self.get_column_names(table_name))
         for item in rows:
@@ -70,10 +71,10 @@ class SaveData:
         return True
 
     def get_column_names(self, table_name):
-        return [ re.sub('[^a-zA-Z0-9 _\-\n\.]', '', column_name) for column_name in self.read_table_columns("../data/{}.csv".format(table_name))]
+        return [ re.sub('[^a-zA-Z0-9 _\-\n\.]', '', column_name) for column_name in self.read_table_columns("data/{}.csv".format(table_name))]
 
     def get_table_names(self):
-        return [ item.split(".")[0] for item in os.listdir("../data") ]
+        return [item.split(".")[0] for item in os.listdir("data")]
 
     def columns_stmt(self, table_name):
         statement = "Id varchar(256) NOT NULL,"+"".join("{} varchar(256),".format(column) for column in self.get_column_names(table_name))
